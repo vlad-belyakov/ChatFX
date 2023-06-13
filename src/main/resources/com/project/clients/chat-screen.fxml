@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.clients.ChatScreenController">
+   <TextField layoutY="600.0" prefHeight="34.0" prefWidth="860.0" promptText="Введите сообщение" style="-fx-background-color: #3E065F; -fx-background-radius: 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="78.0" />
+   <Button layoutX="860.0" layoutY="599.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: #3E065F; -fx-background-radius: 0;" text="Отправить" textFill="WHITE" AnchorPane.bottomAnchor="0.6000000000000014" AnchorPane.rightAnchor="-0.4000000000000057" />
+</AnchorPane>
