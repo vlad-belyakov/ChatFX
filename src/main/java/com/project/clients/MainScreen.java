@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class MainScreen extends Application {
+public class MainScreen extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainScreen.class.getResource("main-screen.fxml"));
@@ -20,6 +20,7 @@ public class MainScreen extends Application {
         stage.getIcons().add(image);
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.setOnCloseRequest(e -> System.exit(0));
         stage.show();
     }
 

@@ -1,11 +1,9 @@
 package com.project.services;
 
-import com.project.clients.Client;
+import com.project.servers.ServerClient;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.net.Socket;
+import java.util.*;
 
 public class ClientServiceImpl implements ClientService{
 
@@ -13,7 +11,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     private static final ClientServiceImpl CSI = new ClientServiceImpl();
-    private static final Map<String, Client> CLIENT_DATABASE = new HashMap<>();
+    private static final HashMap<String, ServerClient> CLIENT_DATABASE = new HashMap<>();
 
 
     public static ClientServiceImpl getInstance() {
@@ -21,24 +19,23 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public boolean create(Client client, String nickname){
-        client.setName(nickname);
-        CLIENT_DATABASE.put(nickname,client);
+    public boolean create(ServerClient client){
+        CLIENT_DATABASE.put(client.getName(), client);
         return true;
     }
 
     @Override
-    public Client read(String nickname) {
+    public ServerClient read(String nickname) {
         return CLIENT_DATABASE.get(nickname);
     }
 
     @Override
-    public List<Client> readAll() {
+    public List<ServerClient> readAll() {
         return new ArrayList<>(CLIENT_DATABASE.values());
     }
 
     @Override
-    public boolean update(Client client, String nickname){
+    public boolean update(ServerClient client, String nickname){
         if(CLIENT_DATABASE.containsKey(nickname)){
             CLIENT_DATABASE.put(nickname,client);
             return true;
@@ -52,9 +49,12 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public boolean check(String nickname){
-        if(CLIENT_DATABASE.get(nickname) != null) {
-            return true;
-        } else return false;
+    public boolean identification(String nickname){
+        return CLIENT_DATABASE.containsKey(nickname);
+    }
+
+    @Override
+    public boolean authentification(String nickname, String password) {
+        return CLIENT_DATABASE.get(nickname).getPassword().equals(password);
     }
 }

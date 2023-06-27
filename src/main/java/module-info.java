@@ -12,9 +12,12 @@ module com.project.chatfx {
     requires spring.web;
     requires spring.beans;
     requires com.fasterxml.jackson.annotation;
+    requires org.jetbrains.annotations;
 
     opens com.project.clients to javafx.fxml;
     exports com.project.clients;
     exports com.project.services;
     opens com.project.services to javafx.fxml;
+    exports com.project.servers;
+    opens com.project.servers to javafx.fxml;
 }

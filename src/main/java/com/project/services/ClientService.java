@@ -1,20 +1,22 @@
 package com.project.services;
 
-import com.project.clients.Client;
+import com.project.servers.ServerClient;
 
 import java.util.List;
 
 public interface ClientService {
 
-    boolean create(Client client, String nickname);
+    boolean create(ServerClient client);
 
-    Client read(String nickname);
+    ServerClient read(String nickname);
 
-    List<Client> readAll();
+    List<ServerClient> readAll();
 
-    boolean update(Client client, String nickname);
+    boolean update(ServerClient client, String nickname);
 
     boolean delete(String nickname);
 
-    boolean check(String nickname);
+    boolean identification(String nickname);
+
+    boolean authentification(String nickname, String password);
 }
